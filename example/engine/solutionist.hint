@@ -1,0 +1,41 @@
+project(engine)
+
+    kind(StaticLib)
+
+    files
+    (
+        source/**.h,
+        source/**.cpp
+    )
+
+    link
+    (
+        opengl32.lib
+    )
+
+    define
+    (
+        NOMINMAX,
+        WIN32_LEAN_AND_MEAN
+    )
+
+    cfgscope(config, Debug)
+    (
+        define(DEBUG)
+    )
+
+    cfgscope(config, Release)
+    (
+        define(Release)
+    )
+
+    cfgscope(config, EditorDebug)
+    (
+        define(DEBUG)
+    )
+
+    cfgscope(config, EditorRelease)
+    (
+        define(Release)
+        # TODO: add compiler flags
+    )

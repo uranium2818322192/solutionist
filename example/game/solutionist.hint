@@ -1,0 +1,49 @@
+project(game)
+
+    files
+    (
+        source/**.h,
+        source/**.cpp
+    )
+
+    # forceincludes { $(SolutionDir)game/source/macros.h }
+
+    depends(engine)
+
+    link
+    (
+    	engine
+    )
+
+    define
+    (
+        ENGINE_PATH=%SolutionDir%engine\\source\\
+    )
+
+    cfgscope(config, Debug)
+    (
+        kind(ConsoleApp)
+        define(DEBUG)
+        # TODO: add compiler flags
+    )
+
+    cfgscope(config, Release)
+    (
+        kind(WindowedApp)
+        define(Release)
+        # TODO: add compiler flags
+    )
+
+    cfgscope(config, EditorDebug)
+    (
+        kind(StaticLib)
+        define(DEBUG)
+        # TODO: add compiler flags
+    )
+
+    cfgscope(config, EditorRelease)
+    (
+        kind(StaticLib)
+        define(Release)
+        # TODO: add compiler flags
+    )

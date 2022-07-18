@@ -1,0 +1,29 @@
+project(editor)
+
+    files
+    (
+        source/**.h,
+        source/**.cpp
+    )
+
+    depends(game, engine)
+
+    link
+    (
+        game,
+        opengl32.lib
+    )
+
+    cfgscope(config, EditorDebug)
+    (
+        kind(ConsoleApp)
+        define(DEBUG)
+        # TODO: add compiler flags
+    )
+
+    cfgscope(config, EditorRelease)
+    (
+        kind(WindowedApp)
+        define(Release)
+        # TODO: add compiler flags
+    )

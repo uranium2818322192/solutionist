@@ -1,0 +1,19 @@
+solution(Example)
+
+    config
+    (
+        Debug,
+        Release,
+        EditorDebug,
+        EditorRelease
+    )
+
+    include(engine)
+    include(game)
+
+    cfgscope(config, EditorDebug, EditorRelease)
+    (
+        include(editor)
+    )
+
+    startup(game)
